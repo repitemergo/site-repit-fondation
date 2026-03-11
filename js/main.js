@@ -741,6 +741,12 @@ function setLang(lang) {
     btn.textContent = lang === 'fr' ? 'EN' : 'FR';
   });
 
+  // Swap logo between FR and EN versions
+  var logoSrc = lang === 'fr' ? 'img/emergo-logo.svg' : 'img/emergo-logo-en.svg';
+  document.querySelectorAll('.logo img').forEach(function(img) {
+    img.setAttribute('src', logoSrc);
+  });
+
   // Save preference
   localStorage.setItem('fondation-lang', lang);
 }
