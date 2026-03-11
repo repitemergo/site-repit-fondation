@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La cause – Soutenir les familles touchées par l'autisme</title>
+  <meta name="description" content="Des familles partout au Québec peinent à trouver du répit. Fondation Emergo soutient celles qui vivent avec l'autisme, souvent en grande détresse.">
+  <link rel="stylesheet" href="https://use.typekit.net/hdz2oxl.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <style>
+    /* ============================================
+       PAGE LA CAUSE – styles spécifiques
+       ============================================ */
+
+    /* ---- Hero : texte + image pleine largeur (bleu foncé) ---- */
+    .block-text-image {
+      background-color: var(--bleu-roi);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-text-image .text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .block-text-image .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--beige);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .block-text-image h2 {
+      color: var(--beige);
+      margin-bottom: 32px;
+    }
+
+    .block-text-image p {
+      color: var(--beige);
+      opacity: 0.88;
+      max-width: 100%;
+      font-size: 1.05rem;
+    }
+
+    .block-text-image .image-col {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-text-image .image-col .curve-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .block-text-image .image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ---- Section texte simple (bleu foncé thème) ---- */
+    .block-text-single {
+      background-color: var(--bleu-roi);
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-text-single .inner {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+      width: 90%;
+    }
+
+    .block-text-single h3 {
+      color: var(--bleu-roi);
+      margin-bottom: 40px;
+      font-family: 'Terfens', serif;
+      font-size: 2rem;
+    }
+
+    .block-text-single p {
+      color: var(--bleu-roi);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    /* ---- Section texte 2 colonnes (jaune) ---- */
+    .block-text-2col {
+      background-color: var(--jaune);
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-text-2col .inner {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .block-text-2col h2 {
+      margin-bottom: 0;
+    }
+
+    .block-text-2col p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ---- Bloc Boîtes (bleu ciel) ---- */
+    .block-boxes {
+      background-color: var(--bleu-ciel);
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-boxes .inner {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    .block-boxes .intro {
+      max-width: 85%;
+      margin-bottom: 60px;
+    }
+
+    .block-boxes .intro h2 {
+      margin-bottom: 24px;
+    }
+
+    .block-boxes .intro p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .boxes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .box-card {
+      border: 2px solid var(--bleu-roi);
+      border-radius: 32px;
+      padding: 48px 28px;
+      text-align: center;
+    }
+
+    .box-card h3 {
+      font-family: 'Terfens', serif;
+      font-size: 1.6rem;
+      color: var(--bleu-roi);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .box-card p {
+      font-size: 1rem;
+      color: var(--bleu-roi);
+      line-height: 1.6;
+    }
+
+    /* ---- Citation ---- */
+    .block-quote {
+      background-color: var(--beige);
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .block-quote .inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .block-quote .quote-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--bleu-roi);
+      margin-bottom: 24px;
+    }
+
+    .block-quote .quote-author {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--bleu-roi);
+    }
+
+    .block-quote .quote-role {
+      font-size: 0.95rem;
+      color: var(--bleu-roi);
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* ---- CTA pill ---- */
+    .block-cta {
+      background-color: var(--beige);
+      padding: 120px 0 100px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .block-cta .cta-pill {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--bleu-roi);
+      border-radius: 300px;
+      padding: 100px 60px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .block-cta .cta-pill-icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: var(--jaune);
+      border-radius: 50%;
+      border: 8px solid var(--bleu-roi);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .block-cta .cta-pill h3 {
+      color: var(--beige);
+      font-family: 'Terfens', serif;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .block-cta .cta-pill .cta-sub {
+      color: var(--beige);
+      opacity: 0.88;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .btn-beige-pill {
+      display: inline-block;
+      padding: 16px 40px;
+      border: 2px solid var(--beige);
+      border-radius: 60px;
+      color: var(--beige);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-beige-pill:hover {
+      background: var(--beige);
+      color: var(--bleu-roi);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .block-text-image,
+      .block-text-single,
+      .block-text-2col,
+      .block-boxes,
+      .block-quote,
+      .block-cta {
+        min-height: auto;
+      }
+      .block-text-image {
+        grid-template-columns: 1fr;
+      }
+      .block-text-image .text-col {
+        padding: 100px 24px 48px;
+      }
+      .block-text-image .image-col {
+        min-height: 300px;
+      }
+      .block-text-image .image-col .curve-mask {
+        display: none;
+      }
+      .block-text-single .inner {
+        width: 100%;
+      }
+      .block-text-2col .inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .boxes-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .block-cta .cta-pill {
+        border-radius: 60px;
+        padding: 80px 32px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/emergo-logo.svg" alt="Fondation Emergo – Parce que l'autisme ne prend pas de pause" style="width:275px;max-width:100%;">
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-links">
+          <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
+          <li><a href="la-cause.html" class="active" data-i18n="nav.cause">La cause</a></li>
+          <li><a href="dons.html" data-i18n="nav.dons">Dons</a></li>
+          <li><a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://www.canadahelps.org/fr/dn/6634" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.donate">Faire un don</a>
+        <a href="javascript:void(0)" class="lang-toggle" onclick="toggleLang()" data-i18n="nav.lang">EN</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== SECTION 1 : HERO (bleu roi + image) ========== -->
+    <section class="block-text-image">
+      <div class="text-col">
+        <div class="eyebrow" data-i18n="cause.hero.eyebrow">Pour une pause essentielle</div>
+        <h2 data-i18n="cause.hero.title">Soutenir les familles vivant avec l'autisme</h2>
+        <p data-i18n="cause.hero.text">L'autisme ne prend pas de pause. Nos répits spécialisés offrent aux familles un souffle vital, dans un cadre sécuritaire, bienveillant et adapté à leurs réalités.</p>
+      </div>
+      <div class="image-col">
+        <svg class="curve-mask" viewBox="0 0 180 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,0 L 180,0 Q 0,50 180,100 L 0,100 Z" fill="var(--bleu-roi, #001E55)"/>
+        </svg>
+        <img src="img/kid-in-grass-lying-down.jpg" alt="Enfant couché dans l'herbe">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2 : TEXTE (bleu roi thème) ========== -->
+    <section class="block-text-single" style="background-color: var(--bleu-roi);">
+      <div class="inner">
+        <h3 style="color: var(--beige);" data-i18n="cause.repit.title">Le répit : un besoin réel, souvent invisible</h3>
+        <p style="color: var(--beige); opacity:0.88;" data-i18n="cause.repit.text1">Vivre avec une personne autiste ayant des besoins de soutien élevés demande une présence constante et une énergie inépuisable. Pour de nombreuses familles, cela signifie souvent s'effacer, parfois s'épuiser.</p>
+        <p style="color: var(--beige); opacity:0.88;" data-i18n="cause.repit.text2">Les répits Emergo ne sont pas un luxe : ils sont une réponse concrète à un besoin urgent. Une pause bienveillante et sécuritaire, pour que la personne autiste vive un moment agréable... et que ses proches puissent enfin souffler.</p>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3 : TEXTE 2 COL (jaune) ========== -->
+    <section class="block-text-2col">
+      <div class="inner">
+        <div>
+          <h2 data-i18n="cause.aussi.title">Le répit, c'est aussi pour la personne autiste</h2>
+        </div>
+        <div>
+          <p data-i18n="cause.aussi.text">Les répits Emergo ne sont pas seulement un moment de pause pour les familles. Pour les participant·es, ce sont des séjours riches en activités, en découvertes et en liens humains. Encadré·es par une équipe formée et attentionnée, les enfants, adolescent·es et adultes autistes vivent des expériences valorisantes, dans un environnement qui respecte leur rythme et leurs besoins. Ici, ils et elles peuvent être eux-mêmes, en sécurité. Et parfois, faire un pas de plus — vers l'autonomie, vers la confiance, ou tout simplement vers le plaisir.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4 : STATISTIQUES (bleu ciel) ========== -->
+    <section class="block-boxes">
+      <div class="inner">
+        <div class="boxes-grid">
+          <div class="box-card">
+            <h3 data-i18n="cause.stat1.title">1 enfant sur 50 est autiste au Canada (2022)</h3>
+            <p data-i18n="cause.stat1.text">Cela représente plus de 7,2 millions de jeunes âgé·es de 1 à 17 ans. Les besoins sont immenses, et l'accès à des services spécialisés demeure limité pour de nombreuses familles.</p>
+          </div>
+          <div class="box-card">
+            <h3 data-i18n="cause.stat2.title">1,5 million de proches aidants au Québec</h3>
+            <p data-i18n="cause.stat2.text">Un adulte sur cinq consacre temps et énergie à soutenir un·e proche. Trop souvent, ces personnes proches aidantes s'épuisent, faute de répit ou de soutien adéquat.</p>
+          </div>
+          <div class="box-card">
+            <h3 data-i18n="cause.stat3.title">2 145 nuitées offertes par Emergo en 2024</h3>
+            <p data-i18n="cause.stat3.text">Grâce à votre soutien, la Fondation Emergo continue de répondre à un besoin urgent en offrant des répits humains, sécuritaires et adaptés aux personnes autistes et à leurs familles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 5 : CITATION (beige) ========== -->
+    <section class="block-quote">
+      <div class="inner">
+        <p class="quote-text" data-i18n="cause.quote.text">Au début, c'était un peu effrayant de laisser Maxence, mais on a vite vu à quel point il était heureux à Emergo. Ces répits nous donnent à tou·tes le temps et l'espace pour recharger nos batteries — y compris pour son frère. Maintenant, toute la famille les attend avec impatience.</p>
+        <div class="quote-author" data-i18n="cause.quote.author">Thomas</div>
+        <div class="quote-role" data-i18n="cause.quote.role">Père de Maxence</div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 6 : CE QUE VOTRE SOUTIEN REND POSSIBLE (bleu ciel) ========== -->
+    <section class="block-boxes">
+      <div class="inner">
+        <div class="intro">
+          <h2 data-i18n="cause.impact.title">Ce que votre soutien rend possible</h2>
+          <p data-i18n="cause.impact.text">Chaque don permet de transformer la réalité d'une famille, d'un·e participant·e ou d'un·e étudiant·e engagé·e auprès d'Emergo. Voici trois exemples concrets de l'impact que vous rendez possible.</p>
+        </div>
+        <div class="boxes-grid">
+          <div class="box-card">
+            <h3 data-i18n="cause.impact1.title">Une pause pour les familles</h3>
+            <p data-i18n="cause.impact1.text">Des personnes proches aidantes qui reprennent leur souffle grâce à un moment de répit bien mérité.</p>
+          </div>
+          <div class="box-card">
+            <h3 data-i18n="cause.impact2.title">Des participant·es épanoui·es</h3>
+            <p data-i18n="cause.impact2.text">Des personnes autistes accueillies dans un environnement respectueux, sécuritaire et joyeux.</p>
+          </div>
+          <div class="box-card">
+            <h3 data-i18n="cause.impact3.title">Une expérience humaine inoubliable</h3>
+            <p data-i18n="cause.impact3.text">Des étudiant·es vivent une expérience concrète, enrichissante et profondément humaine au sein de l'équipe de répit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 7 : CTA ========== -->
+    <section class="block-cta">
+      <div class="cta-pill">
+        <div class="cta-pill-icon">
+          <svg viewBox="0 0 75 75" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="37.5" cy="37.5" r="24" stroke="#001E55" stroke-width="3" fill="none"/>
+            <circle cx="37.5" cy="29" r="7" fill="#001E55"/>
+            <path d="M22 52c0-8.56 6.94-15.5 15.5-15.5S53 43.44 53 52" fill="#001E55"/>
+          </svg>
+        </div>
+        <h3 data-i18n="cause.cta.title">Je veux contribuer</h3>
+        <p class="cta-sub" data-i18n="cause.cta.text">Votre don aide une famille vivant avec l'autisme à accéder à un répit spécialisé et accueillant.</p>
+        <a href="https://www.canadahelps.org/fr/dn/6634" class="btn-beige-pill" target="_blank" rel="noopener" data-i18n="cause.cta.btn">Faire un don</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">
+          <a href="index.html" class="logo">
+            <img src="img/emergo-logo.svg" alt="Fondation Emergo" style="width:275px;max-width:100%;">
+          </a>
+        </div>
+        <div class="footer-info">
+          <h4 data-i18n="footer.address.label">Adresse :</h4>
+          <p><a href="https://maps.app.goo.gl/T6Fyi6uvD1BULQPL6" target="_blank" rel="noopener">1862, rue Jolicoeur, Montréal (Québec) H4E 1X2</a></p>
+          <h4 data-i18n="footer.association.label">Numéro d'association :</h4>
+          <p>817384712RR0001</p>
+          <h4 data-i18n="footer.contact.label">Contact</h4>
+          <p><a href="tel:5146582882">514 658-2882</a><br><a href="mailto:info@fondationemergo.com">info@fondationemergo.com</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="a-propos.html" data-i18n="nav.about">À propos</a>
+          <a href="la-cause.html" data-i18n="nav.cause">La cause</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+        </nav>
+        <div class="footer-actions">
+          <a href="https://www.canadahelps.org/fr/dn/6634" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.donate">Faire un don</a>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/repitemergo" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M31.6317 17.9305C31.6317 10.0586 25.2891 3.67725 17.465 3.67725C9.64097 3.67725 3.29834 10.0586 3.29834 17.9305C3.29834 25.0445 8.47886 30.9413 15.2515 32.0106V22.0506H11.6545V17.9305H15.2515V14.7903C15.2515 11.2181 17.3665 9.24492 20.6024 9.24492C22.1525 9.24492 23.7736 9.52331 23.7736 9.52331V13.0309H21.9873C20.2275 13.0309 19.6785 14.1297 19.6785 15.2569V17.9305H23.6075L22.9795 22.0506H19.6785V32.0106C26.4512 30.9413 31.6317 25.0448 31.6317 17.9305Z" fill="#001E55"/></svg></a>
+            <a href="https://www.instagram.com/repitemergo/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.1315 5.09375H11.7982C7.88617 5.09375 4.71484 8.26507 4.71484 12.1771V23.5104C4.71484 27.4224 7.88617 30.5938 11.7982 30.5938H23.1315C27.0435 30.5938 30.2148 27.4224 30.2148 23.5104V12.1771C30.2148 8.26507 27.0435 5.09375 23.1315 5.09375ZM27.7357 23.5104C27.7279 26.0499 25.671 28.1068 23.1315 28.1146H11.7982C9.25859 28.1068 7.20179 26.0499 7.19401 23.5104V12.1771C7.20179 9.6375 9.25859 7.58069 11.7982 7.57292H23.1315C25.671 7.58069 27.7279 9.6375 27.7357 12.1771V23.5104ZM24.194 12.5312C24.9764 12.5312 25.6107 11.897 25.6107 11.1146C25.6107 10.3322 24.9764 9.69792 24.194 9.69792C23.4116 9.69792 22.7773 10.3322 22.7773 11.1146C22.7773 11.897 23.4116 12.5312 24.194 12.5312ZM17.4648 11.4688C13.944 11.4688 11.0898 14.3229 11.0898 17.8438C11.0898 21.3646 13.944 24.2188 17.4648 24.2188C20.9857 24.2188 23.8398 21.3646 23.8398 17.8438C23.8437 16.1518 23.1732 14.5281 21.9768 13.3318C20.7804 12.1354 19.1568 11.465 17.4648 11.4688ZM13.569 17.8438C13.569 19.9954 15.3132 21.7396 17.4648 21.7396C19.6165 21.7396 21.3607 19.9954 21.3607 17.8438C21.3607 15.6921 19.6165 13.9479 17.4648 13.9479C15.3132 13.9479 13.569 15.6921 13.569 17.8438Z" fill="#001E55"/></svg></a>
+            <a href="https://ca.linkedin.com/company/repitemergo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.83984 5.09375C5.66623 5.09375 4.71484 6.04514 4.71484 7.21875V28.4688C4.71484 29.6423 5.66623 30.5938 6.83984 30.5938H28.0898C29.2634 30.5938 30.2148 29.6423 30.2148 28.4688V7.21875C30.2148 6.04514 29.2634 5.09375 28.0898 5.09375H6.83984ZM12.5359 10.7643C12.5439 12.119 11.5299 12.9537 10.3266 12.9477C9.19303 12.9417 8.2049 12.0393 8.21088 10.7663C8.21686 9.56896 9.16315 8.60673 10.3923 8.63462C11.6394 8.66252 12.5439 9.57693 12.5359 10.7643ZM17.8611 14.6729H14.2891V26.7993H18.0623V20.5917C18.0683 20.243 18.0842 19.8805 18.1739 19.5477C18.5105 18.3046 19.6282 17.5018 20.8753 17.6991C21.6762 17.8245 22.206 18.2887 22.4291 19.0438C22.5667 19.5158 22.6285 20.0239 22.6344 20.516C22.6506 22.0001 22.6483 23.4842 22.646 24.9684V26.7974H26.4295V19.7849C26.4335 19.0617 26.3558 18.3485 26.1785 17.6492C25.9136 16.6093 25.3657 15.7486 24.4752 15.1272C23.8437 14.6849 23.1504 14.4 22.3754 14.3681C21.7126 14.3334 21.3098 14.3116 20.931 14.388C19.8473 14.6052 18.8951 15.1012 18.1759 15.9757L17.8611 16.3643V14.6729ZM8.51383 26.8033H12.2691V14.6808H8.51383V26.8033Z" fill="#001E55"/></svg></a>
+            <a href="https://www.youtube.com/@RepitEmergo" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M31.0549 10.7044C30.8935 10.1057 30.5782 9.55976 30.1403 9.12083C29.7023 8.68189 29.1571 8.36531 28.5587 8.20259C26.3402 7.59342 17.4648 7.58351 17.4648 7.58351C17.4648 7.58351 8.59082 7.57359 6.37091 8.15584C5.77297 8.32605 5.22882 8.64711 4.79071 9.0882C4.35259 9.52929 4.03523 10.0756 3.86907 10.6747C3.28399 12.8932 3.27832 17.4945 3.27832 17.4945C3.27832 17.4945 3.27266 22.1185 3.85349 24.3143C4.17932 25.5284 5.13557 26.4875 6.35107 26.8148C8.59224 27.4239 17.4436 27.4338 17.4436 27.4338C17.4436 27.4338 26.319 27.4438 28.5375 26.8629C29.136 26.7005 29.6818 26.3846 30.1208 25.9466C30.5599 25.5086 30.877 24.9635 31.0407 24.3653C31.6272 22.1483 31.6315 17.5483 31.6315 17.5483C31.6315 17.5483 31.6598 12.9229 31.0549 10.7044ZM14.6258 21.7573L14.6329 13.2573L22.0095 17.5143L14.6258 21.7573Z" fill="#001E55"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">&copy; 2025 Emergo. Tous droits réservés.</p>
+        <div class="footer-bottom-links">
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+          <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

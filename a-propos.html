@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos – Fondation Emergo</title>
+  <meta name="description" content="Fondation Emergo soutient les familles vivant avec l'autisme grâce à des services de répit spécialisés. Découvrez notre mission et notre équipe.">
+  <link rel="stylesheet" href="https://use.typekit.net/hdz2oxl.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <style>
+    /* ============================================
+       PAGE À PROPOS – styles spécifiques
+       ============================================ */
+
+    /* ---- Hero : texte + image pleine largeur (bleu foncé) ---- */
+    .block-text-image {
+      background-color: var(--bleu-roi);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-text-image .text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .block-text-image .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--beige);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .block-text-image h2 {
+      color: var(--beige);
+      margin-bottom: 32px;
+    }
+
+    .block-text-image p {
+      color: var(--beige);
+      opacity: 0.88;
+      max-width: 100%;
+      font-size: 1.05rem;
+    }
+
+    .block-text-image .image-col {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-text-image .image-col .curve-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .block-text-image .image-col .curve-mask-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 180px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .block-text-image .image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ---- Variante image à gauche ---- */
+    .block-text-image.layout-image-left .image-col {
+      order: -1;
+    }
+
+    .block-text-image.layout-image-left .text-col {
+      padding: 120px 80px 80px 60px;
+    }
+
+    /* ---- Section Mission (jaune) ---- */
+    .block-mission {
+      background-color: var(--jaune);
+      padding: 120px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-mission .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .block-mission .container { max-width: 100%; padding: 0 80px; }
+
+    .block-mission h2 {
+      margin-bottom: 0;
+    }
+
+    .block-mission p {
+      font-size: 1.05rem;
+      max-width: 100%;
+    }
+
+    /* ---- Section Rapports (bleu foncé) ---- */
+    .block-rapports {
+      background-color: var(--bleu-roi);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .block-rapports .text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+    }
+
+    .block-rapports .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--beige);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .block-rapports h2 {
+      color: var(--beige);
+      margin-bottom: 32px;
+    }
+
+    .block-rapports p {
+      color: var(--beige);
+      opacity: 0.88;
+      font-size: 1.05rem;
+      max-width: 100%;
+    }
+
+    .block-rapports .image-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+    }
+
+    .block-rapports .image-col img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    }
+
+    /* Liens de téléchargement rapports */
+    .download-list {
+      margin-top: 48px;
+      border-top: 1px solid rgba(240,237,225,0.3);
+    }
+
+    .download-link {
+      display: grid;
+      grid-template-columns: 1fr 40px;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(240,237,225,0.3);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .download-link .dl-text {
+      color: var(--beige);
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .download-link:hover .dl-text { color: var(--jaune); }
+
+    .download-link .dl-icon { width: 40px; height: 40px; }
+    .download-link .dl-icon circle,
+    .download-link .dl-icon path { transition: all 0.3s ease; }
+    .download-link:hover .dl-icon .dl-arrow { fill: var(--jaune); }
+    .download-link:hover .dl-icon .dl-line { stroke: var(--jaune); }
+    .download-link:hover .dl-icon .dl-circle { stroke: var(--jaune); }
+
+    /* ---- Section Équipe (grille de personnes) ---- */
+    .block-team { padding: 120px 0; min-height: 100vh; display: flex; align-items: center; }
+    .block-team.theme-jaune { background-color: var(--jaune); }
+    .block-team.theme-vert { background-color: var(--vert); }
+
+    .block-team h2 { margin-bottom: 12px; }
+
+    .block-team .team-subtitle {
+      font-size: 1.05rem;
+      max-width: 700px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 64px;
+    }
+
+    .team-card .team-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 32px;
+    }
+
+    .team-card .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-card .team-name {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-top: 20px;
+      color: var(--bleu-roi);
+    }
+
+    .team-card .team-role {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--bleu-roi);
+      margin-top: 4px;
+    }
+
+    /* ---- Section Citation ---- */
+    .block-quote { padding: 120px 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .block-quote.theme-beige { background-color: var(--beige); }
+    .block-quote.theme-jaune { background-color: var(--jaune); }
+
+    .quote-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 32px;
+    }
+
+    .quote-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quote-text {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--bleu-roi);
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .quote-author {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--bleu-roi);
+      margin-top: 28px;
+    }
+
+    .quote-role {
+      font-size: 0.9rem;
+      color: var(--bleu-roi);
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* ---- Section CTA ---- */
+    .block-cta {
+      background-color: var(--beige);
+      padding: 100px 0 120px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-pill {
+      background-color: var(--bleu-roi);
+      border-radius: 50vw;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 130px 80px 100px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-pill-icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--jaune);
+      border: 10px solid var(--bleu-roi);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-pill h3 {
+      color: var(--beige);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 20px;
+    }
+
+    .cta-pill .cta-sub {
+      color: var(--beige);
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      font-size: 1.1rem;
+    }
+
+    .btn-beige-pill {
+      display: inline-block;
+      padding: 14px 52px;
+      border-radius: 29px;
+      background: var(--beige);
+      color: var(--bleu-roi);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.3s ease;
+      border: 2px solid var(--beige);
+    }
+
+    .btn-beige-pill:hover {
+      background: transparent;
+      color: var(--beige);
+    }
+
+    .btn-beige-outline {
+      display: inline-block;
+      padding: 13px 42px;
+      border-radius: 29px;
+      background: transparent;
+      color: var(--beige);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.3s ease;
+      border: 2px solid var(--beige);
+    }
+
+    .btn-beige-outline:hover {
+      background: var(--beige);
+      color: var(--bleu-roi);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 960px) {
+      .block-text-image,
+      .block-mission,
+      .block-rapports,
+      .block-team,
+      .block-quote,
+      .block-cta {
+        min-height: auto;
+      }
+
+      .block-text-image,
+      .block-text-image.layout-image-left {
+        grid-template-columns: 1fr;
+      }
+
+      .block-text-image .text-col,
+      .block-text-image.layout-image-left .text-col {
+        padding: 100px 28px 60px;
+      }
+
+      .block-text-image .image-col,
+      .block-text-image.layout-image-left .image-col {
+        height: 360px;
+        order: 0;
+      }
+
+      .block-text-image .image-col .curve-mask,
+      .block-text-image .image-col .curve-mask-right {
+        display: none;
+      }
+
+      .block-mission .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .block-rapports {
+        grid-template-columns: 1fr;
+      }
+
+      .block-rapports .text-col {
+        padding: 60px 28px;
+      }
+
+      .block-rapports .image-col {
+        padding: 0 28px 60px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .cta-pill {
+        border-radius: 40px;
+        padding: 110px 36px 80px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .block-text-image .text-col {
+        padding: 90px 20px 50px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .cta-pill {
+        padding: 100px 24px 72px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/emergo-logo.svg" alt="Fondation Emergo" style="width:275px;max-width:100%;">
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-links">
+          <li><a href="a-propos.html" class="active" data-i18n="nav.about">À propos</a></li>
+          <li><a href="la-cause.html" data-i18n="nav.cause">La cause</a></li>
+          <li><a href="dons.html" data-i18n="nav.dons">Dons</a></li>
+          <li><a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://www.canadahelps.org/fr/dn/6634" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nav.donate">Faire un don</a>
+        <a href="javascript:void(0)" class="lang-toggle" onclick="toggleLang()" data-i18n="nav.lang">EN</a>
+      </div>
+      <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top:70px;">
+
+    <!-- ========== SECTION 1 : HERO ========== -->
+    <section class="block-text-image">
+      <div class="text-col">
+        <div class="eyebrow" data-i18n="about.hero.eyebrow">En savoir plus</div>
+        <h2 data-i18n="about.hero.title">À propos de la Fondation Emergo</h2>
+        <p data-i18n="about.hero.text">Organisme de bienfaisance enregistré, la Fondation Emergo soutient le développement et la pérennité des services de répit spécialisés offerts par Répit Emergo au Québec.</p>
+      </div>
+      <div class="image-col">
+        <svg class="curve-mask" viewBox="0 0 180 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,0 L 180,0 Q 0,50 180,100 L 0,100 Z" fill="var(--bleu-roi, #001E55)"/>
+        </svg>
+        <img src="img/Emergo_2-for-1.jpg" alt="Équipe Fondation Emergo">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2 : MISSION (jaune) ========== -->
+    <section class="block-mission">
+      <div class="container">
+        <div class="grid-2col">
+          <div><h2 data-i18n="about.mission.title">Une mission centrée sur les familles</h2></div>
+          <div><p data-i18n="about.mission.text">La Fondation Emergo soutient les services de Répit Emergo et agit comme un levier de financement, de développement et de sensibilisation. Sa mission : rendre le répit spécialisé plus accessible aux familles qui vivent au quotidien la réalité de l'autisme, souvent épuisées et isolées. Elle mobilise la communauté autour de cette réalité, valorise l'engagement des intervenant·es et veille à ce que les services demeurent humains, adaptés et durables.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3 : RAPPORTS ANNUELS ========== -->
+    <section class="block-rapports">
+      <div class="text-col">
+        <div class="eyebrow" data-i18n="about.rapports.eyebrow">Nos publications</div>
+        <h2 data-i18n="about.rapports.title">Rapports annuels</h2>
+        <p data-i18n="about.rapports.text">Nos rapports annuels illustrent l'impact de vos dons et la portée de notre mission. Découvrez en toute transparence les actions concrètes réalisées chaque année.</p>
+        <div class="download-list">
+          <a href="FondationEmergo_RapportAnnuel_2024-2025.pdf" class="download-link" target="_blank">
+            <div class="dl-text" data-i18n="about.rapports.dl1">Rapport 2024-2025</div>
+            <svg class="dl-icon" viewBox="0 0 40 40" fill="none"><path class="dl-arrow" d="M19.2929 23.7071C19.6834 24.0976 20.3166 24.0976 20.7071 23.7071L27.0711 17.3431C27.4616 16.9526 27.4616 16.3195 27.0711 15.9289C26.6805 15.5384 26.0474 15.5384 25.6569 15.9289L20 21.5858L14.3431 15.9289C13.9526 15.5384 13.3195 15.5384 12.9289 15.9289C12.5384 16.3195 12.5384 16.9526 12.9289 17.3431L19.2929 23.7071ZM19 7L19 23L21 23L21 7L19 7Z" fill="#F0EDE1"/><path class="dl-line" d="M12 29L29 29" stroke="#F0EDE1" stroke-width="2" stroke-linecap="round"/><circle class="dl-circle" cx="20" cy="20" r="19" stroke="#F0EDE1" stroke-width="2"/></svg>
+          </a>
+          <a href="FondationEmergo_RapportAnnuel_2023-2024.pdf" class="download-link" target="_blank">
+            <div class="dl-text" data-i18n="about.rapports.dl2">Rapport 2023-2024</div>
+            <svg class="dl-icon" viewBox="0 0 40 40" fill="none"><path class="dl-arrow" d="M19.2929 23.7071C19.6834 24.0976 20.3166 24.0976 20.7071 23.7071L27.0711 17.3431C27.4616 16.9526 27.4616 16.3195 27.0711 15.9289C26.6805 15.5384 26.0474 15.5384 25.6569 15.9289L20 21.5858L14.3431 15.9289C13.9526 15.5384 13.3195 15.5384 12.9289 15.9289C12.5384 16.3195 12.5384 16.9526 12.9289 17.3431L19.2929 23.7071ZM19 7L19 23L21 23L21 7L19 7Z" fill="#F0EDE1"/><path class="dl-line" d="M12 29L29 29" stroke="#F0EDE1" stroke-width="2" stroke-linecap="round"/><circle class="dl-circle" cx="20" cy="20" r="19" stroke="#F0EDE1" stroke-width="2"/></svg>
+          </a>
+          <a href="FondationEmergo_RapportAnnuel_2022-2023.pdf" class="download-link" target="_blank">
+            <div class="dl-text" data-i18n="about.rapports.dl3">Rapport 2022-2023</div>
+            <svg class="dl-icon" viewBox="0 0 40 40" fill="none"><path class="dl-arrow" d="M19.2929 23.7071C19.6834 24.0976 20.3166 24.0976 20.7071 23.7071L27.0711 17.3431C27.4616 16.9526 27.4616 16.3195 27.0711 15.9289C26.6805 15.5384 26.0474 15.5384 25.6569 15.9289L20 21.5858L14.3431 15.9289C13.9526 15.5384 13.3195 15.5384 12.9289 15.9289C12.5384 16.3195 12.5384 16.9526 12.9289 17.3431L19.2929 23.7071ZM19 7L19 23L21 23L21 7L19 7Z" fill="#F0EDE1"/><path class="dl-line" d="M12 29L29 29" stroke="#F0EDE1" stroke-width="2" stroke-linecap="round"/><circle class="dl-circle" cx="20" cy="20" r="19" stroke="#F0EDE1" stroke-width="2"/></svg>
+          </a>
+          <a href="FondationEmergo_RapportAnnuel_2021-2022.pdf" class="download-link" target="_blank">
+            <div class="dl-text" data-i18n="about.rapports.dl4">Rapport 2021-2022</div>
+            <svg class="dl-icon" viewBox="0 0 40 40" fill="none"><path class="dl-arrow" d="M19.2929 23.7071C19.6834 24.0976 20.3166 24.0976 20.7071 23.7071L27.0711 17.3431C27.4616 16.9526 27.4616 16.3195 27.0711 15.9289C26.6805 15.5384 26.0474 15.5384 25.6569 15.9289L20 21.5858L14.3431 15.9289C13.9526 15.5384 13.3195 15.5384 12.9289 15.9289C12.5384 16.3195 12.5384 16.9526 12.9289 17.3431L19.2929 23.7071ZM19 7L19 23L21 23L21 7L19 7Z" fill="#F0EDE1"/><path class="dl-line" d="M12 29L29 29" stroke="#F0EDE1" stroke-width="2" stroke-linecap="round"/><circle class="dl-circle" cx="20" cy="20" r="19" stroke="#F0EDE1" stroke-width="2"/></svg>
+          </a>
+          <a href="FondationEmergo_RapportAnnuel_2020-2021.pdf" class="download-link" target="_blank">
+            <div class="dl-text" data-i18n="about.rapports.dl5">Rapport 2020-2021</div>
+            <svg class="dl-icon" viewBox="0 0 40 40" fill="none"><path class="dl-arrow" d="M19.2929 23.7071C19.6834 24.0976 20.3166 24.0976 20.7071 23.7071L27.0711 17.3431C27.4616 16.9526 27.4616 16.3195 27.0711 15.9289C26.6805 15.5384 26.0474 15.5384 25.6569 15.9289L20 21.5858L14.3431 15.9289C13.9526 15.5384 13.3195 15.5384 12.9289 15.9289C12.5384 16.3195 12.5384 16.9526 12.9289 17.3431L19.2929 23.7071ZM19 7L19 23L21 23L21 7L19 7Z" fill="#F0EDE1"/><path class="dl-line" d="M12 29L29 29" stroke="#F0EDE1" stroke-width="2" stroke-linecap="round"/><circle class="dl-circle" cx="20" cy="20" r="19" stroke="#F0EDE1" stroke-width="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="image-col">
+        <img src="img/RepitEmergo_rapport-annuel-1.png" alt="Rapport annuel Fondation Emergo">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4 : NOTRE C.A. (jaune) ========== -->
+    <section class="block-team theme-jaune">
+      <div class="container">
+        <h2 data-i18n="about.ca.title">Notre C.A.</h2>
+        <p class="team-subtitle" data-i18n="about.ca.subtitle">Des parents et alliés engagés qui veillent à la mission d'Emergo.</p>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Sylvie-Cataford.jpg" alt="Sylvie Cataford"></div>
+            <div class="team-name">Sylvie Cataford</div>
+            <div class="team-role" data-i18n="about.ca.role1">Présidente et parent</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Andree-Robert.jpg" alt="Andrée Robert"></div>
+            <div class="team-name">Andrée Robert</div>
+            <div class="team-role" data-i18n="about.ca.role2">Trésorière et parent</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Jacques-Chartrand-1.jpg" alt="Jacques Chartrand"></div>
+            <div class="team-name">Jacques Chartrand</div>
+            <div class="team-role" data-i18n="about.ca.role3">Président fondateur et parent</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Membre_fallback-1.jpg" alt="Henriette Angers"></div>
+            <div class="team-name">Henriette Angers</div>
+            <div class="team-role" data-i18n="about.ca.role4">Administratrice et parent</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Nicolas-Schulman.jpg" alt="Nicolas Schulman"></div>
+            <div class="team-name">Nicolas Schulman</div>
+            <div class="team-role" data-i18n="about.ca.role5">Administrateur</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Nicole-Saltiel.jpg" alt="Nicole Saltiel"></div>
+            <div class="team-name">Nicole Saltiel</div>
+            <div class="team-role" data-i18n="about.ca.role6">Administratrice</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Melanie-Branchaud.jpg" alt="Mélanie Branchaud"></div>
+            <div class="team-name">Mélanie Branchaud</div>
+            <div class="team-role" data-i18n="about.ca.role7">Administratrice</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 5 : CITATION SYLVIE (beige) ========== -->
+    <section class="block-quote theme-beige">
+      <div class="container">
+        <div class="quote-inner">
+          <div class="quote-avatar"><img src="img/Sylvie-Cataford.jpg" alt="Sylvie Cataford"></div>
+          <p class="quote-text" data-i18n="about.quote1.text">Ce répit, c'est un souffle. Il nous permet, comme parents, de tenir bon, de rester disponibles pour les autres enfants… de continuer malgré les défis du quotidien.</p>
+          <div class="quote-author">Sylvie Cataford</div>
+          <div class="quote-role" data-i18n="about.quote1.role">Présidente et parent</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 6 : AMBASSADEURS (vert) ========== -->
+    <section class="block-team theme-vert">
+      <div class="container">
+        <h2 data-i18n="about.ambassadors.title">Ambassadeur·rices</h2>
+        <p class="team-subtitle" data-i18n="about.ambassadors.subtitle">Des allié·es fidèles qui soutiennent la mission d'Emergo depuis des années</p>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Jacques-Chartrand-1.jpg" alt="Jacques Chartrand"></div>
+            <div class="team-name">Jacques Chartrand</div>
+            <div class="team-role" data-i18n="about.amb.role1">Président fondateur</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Luc-Bertrand.jpg" alt="Luc Bertrand"></div>
+            <div class="team-name">Luc Bertrand</div>
+            <div class="team-role" data-i18n="about.amb.role2">Banque Nationale</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Michel-Robert.jpg" alt="Michel Robert"></div>
+            <div class="team-name">Michel Robert</div>
+            <div class="team-role" data-i18n="about.amb.role3">Groupe Robert</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Robert-Roy.jpg" alt="Robert Roy"></div>
+            <div class="team-name">Robert Roy</div>
+            <div class="team-role" data-i18n="about.amb.role4">Domaine Roy &amp; Fils</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Louis-Vachon.jpg" alt="Louis Vachon"></div>
+            <div class="team-name">Louis Vachon</div>
+            <div class="team-role" data-i18n="about.amb.role5">J.C. Flowers &amp; Co</div>
+          </article>
+          <article class="team-card">
+            <div class="team-photo"><img src="img/Claude-Robert.jpg" alt="Claude Robert"></div>
+            <div class="team-name">Claude Robert</div>
+            <div class="team-role" data-i18n="about.amb.role6">Groupe Robert</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 7 : L'ÉQUIPE RÉPIT (image à gauche) ========== -->
+    <section class="block-text-image layout-image-left">
+      <div class="text-col">
+        <h2 data-i18n="about.equipe.title">L'équipe Répit</h2>
+        <p data-i18n="about.equipe.text">Chaque année, nous recrutons et formons une équipe attentionnée et dynamique, prête à accompagner les participant·es avec respect, structure et bonne humeur.</p>
+        <div style="margin-top:40px;">
+          <a href="https://repitemergo.com/fr/" class="btn-beige-outline" target="_blank" rel="noopener" data-i18n="about.equipe.btn">Visitez le site de Répit Emergo</a>
+        </div>
+      </div>
+      <div class="image-col">
+        <svg class="curve-mask-right" viewBox="0 0 180 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 180,0 L 0,0 Q 180,50 0,100 L 180,100 Z" fill="var(--bleu-roi, #001E55)"/>
+        </svg>
+        <img src="img/staff-group.jpg" alt="L'équipe de répit Emergo">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 8 : CITATION GOLEM (jaune) ========== -->
+    <section class="block-quote theme-jaune">
+      <div class="container">
+        <div class="quote-inner">
+          <div class="quote-avatar"><img src="img/Golem.jpeg" alt="Golem"></div>
+          <p class="quote-text" data-i18n="about.quote2.text">Voir les enfants s'épanouir pendant que les parents reprennent leur souffle, c'est la preuve que notre travail a un réel impact. C'est ce qui me motive chaque jour.</p>
+          <div class="quote-author">Golem</div>
+          <div class="quote-role" data-i18n="about.quote2.role">Personnel de répit</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 9 : ÉQUIPE BUREAU (image à droite) ========== -->
+    <section class="block-text-image">
+      <div class="text-col">
+        <h2 data-i18n="about.bureau.title">Équipe Bureau</h2>
+        <p data-i18n="about.bureau.text">Qu'il s'agisse d'organiser les séjours de répit ou de coordonner les activités de la Fondation, notre équipe de bureau engagée assure l'encadrement, la logistique, le financement et le soutien aux familles. Elle est composée de Pierre (directeur, Répit Emergo), Reetta (directrice, Fondation Emergo), Éric (directeur adjoint), Marie-Alice (coordonnatrice des répits) et Ameyo (agente administrative).</p>
+      </div>
+      <div class="image-col">
+        <svg class="curve-mask" viewBox="0 0 180 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,0 L 180,0 Q 0,50 180,100 L 0,100 Z" fill="var(--bleu-roi, #001E55)"/>
+        </svg>
+        <img src="img/praplui-2.jpeg" alt="Équipe bureau Emergo">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 10 : CTA ========== -->
+    <section class="block-cta">
+      <div class="container">
+        <div class="cta-pill">
+          <div class="cta-pill-icon">
+            <svg viewBox="0 0 75 75" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="37.5" cy="37.5" r="24" stroke="#001E55" stroke-width="3" fill="none"/>
+              <circle cx="37.5" cy="29" r="7" fill="#001E55"/>
+              <path d="M22 52c0-8.56 6.94-15.5 15.5-15.5S53 43.44 53 52" fill="#001E55"/>
+            </svg>
+          </div>
+          <h3 data-i18n="about.cta.title">Soutenez notre mission</h3>
+          <p class="cta-sub" data-i18n="about.cta.text">Chaque don nous permet d'offrir plus de répits aux familles qui en ont le plus besoin.</p>
+          <a href="https://www.canadahelps.org/fr/dn/6634" class="btn-beige-pill" target="_blank" rel="noopener" data-i18n="about.cta.btn">Faire un don</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">
+          <a href="index.html" class="logo">
+            <img src="img/emergo-logo.svg" alt="Fondation Emergo" style="width:275px;max-width:100%;">
+          </a>
+        </div>
+        <div class="footer-info">
+          <h4 data-i18n="footer.address.label">Adresse :</h4>
+          <p><a href="https://maps.app.goo.gl/T6Fyi6uvD1BULQPL6" target="_blank" rel="noopener">1862, rue Jolicoeur, Montréal (Québec) H4E 1X2</a></p>
+          <h4 data-i18n="footer.association.label">Numéro d'association :</h4>
+          <p>817384712RR0001</p>
+          <h4 data-i18n="footer.contact.label">Contact</h4>
+          <p><a href="tel:5146582882">514 658-2882</a><br><a href="mailto:info@fondationemergo.com">info@fondationemergo.com</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="a-propos.html" data-i18n="nav.about">À propos</a>
+          <a href="la-cause.html" data-i18n="nav.cause">La cause</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+        </nav>
+        <div class="footer-actions">
+          <a href="https://www.canadahelps.org/fr/dn/6634" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.donate">Faire un don</a>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/repitemergo" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M31.6317 17.9305C31.6317 10.0586 25.2891 3.67725 17.465 3.67725C9.64097 3.67725 3.29834 10.0586 3.29834 17.9305C3.29834 25.0445 8.47886 30.9413 15.2515 32.0106V22.0506H11.6545V17.9305H15.2515V14.7903C15.2515 11.2181 17.3665 9.24492 20.6024 9.24492C22.1525 9.24492 23.7736 9.52331 23.7736 9.52331V13.0309H21.9873C20.2275 13.0309 19.6785 14.1297 19.6785 15.2569V17.9305H23.6075L22.9795 22.0506H19.6785V32.0106C26.4512 30.9413 31.6317 25.0448 31.6317 17.9305Z" fill="#001E55"/></svg></a>
+            <a href="https://www.instagram.com/repitemergo/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.1315 5.09375H11.7982C7.88617 5.09375 4.71484 8.26507 4.71484 12.1771V23.5104C4.71484 27.4224 7.88617 30.5938 11.7982 30.5938H23.1315C27.0435 30.5938 30.2148 27.4224 30.2148 23.5104V12.1771C30.2148 8.26507 27.0435 5.09375 23.1315 5.09375ZM27.7357 23.5104C27.7279 26.0499 25.671 28.1068 23.1315 28.1146H11.7982C9.25859 28.1068 7.20179 26.0499 7.19401 23.5104V12.1771C7.20179 9.6375 9.25859 7.58069 11.7982 7.57292H23.1315C25.671 7.58069 27.7279 9.6375 27.7357 12.1771V23.5104ZM24.194 12.5312C24.9764 12.5312 25.6107 11.897 25.6107 11.1146C25.6107 10.3322 24.9764 9.69792 24.194 9.69792C23.4116 9.69792 22.7773 10.3322 22.7773 11.1146C22.7773 11.897 23.4116 12.5312 24.194 12.5312ZM17.4648 11.4688C13.944 11.4688 11.0898 14.3229 11.0898 17.8438C11.0898 21.3646 13.944 24.2188 17.4648 24.2188C20.9857 24.2188 23.8398 21.3646 23.8398 17.8438C23.8437 16.1518 23.1732 14.5281 21.9768 13.3318C20.7804 12.1354 19.1568 11.465 17.4648 11.4688ZM13.569 17.8438C13.569 19.9954 15.3132 21.7396 17.4648 21.7396C19.6165 21.7396 21.3607 19.9954 21.3607 17.8438C21.3607 15.6921 19.6165 13.9479 17.4648 13.9479C15.3132 13.9479 13.569 15.6921 13.569 17.8438Z" fill="#001E55"/></svg></a>
+            <a href="https://ca.linkedin.com/company/repitemergo" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.83984 5.09375C5.66623 5.09375 4.71484 6.04514 4.71484 7.21875V28.4688C4.71484 29.6423 5.66623 30.5938 6.83984 30.5938H28.0898C29.2634 30.5938 30.2148 29.6423 30.2148 28.4688V7.21875C30.2148 6.04514 29.2634 5.09375 28.0898 5.09375H6.83984ZM12.5359 10.7643C12.5439 12.119 11.5299 12.9537 10.3266 12.9477C9.19303 12.9417 8.2049 12.0393 8.21088 10.7663C8.21686 9.56896 9.16315 8.60673 10.3923 8.63462C11.6394 8.66252 12.5439 9.57693 12.5359 10.7643ZM17.8611 14.6729H14.2891V26.7993H18.0623V20.5917C18.0683 20.243 18.0842 19.8805 18.1739 19.5477C18.5105 18.3046 19.6282 17.5018 20.8753 17.6991C21.6762 17.8245 22.206 18.2887 22.4291 19.0438C22.5667 19.5158 22.6285 20.0239 22.6344 20.516C22.6506 22.0001 22.6483 23.4842 22.646 24.9684V26.7974H26.4295V19.7849C26.4335 19.0617 26.3558 18.3485 26.1785 17.6492C25.9136 16.6093 25.3657 15.7486 24.4752 15.1272C23.8437 14.6849 23.1504 14.4 22.3754 14.3681C21.7126 14.3334 21.3098 14.3116 20.931 14.388C19.8473 14.6052 18.8951 15.1012 18.1759 15.9757L17.8611 16.3643V14.6729ZM8.51383 26.8033H12.2691V14.6808H8.51383V26.8033Z" fill="#001E55"/></svg></a>
+            <a href="https://www.youtube.com/@RepitEmergo" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M31.0549 10.7044C30.8935 10.1057 30.5782 9.55976 30.1403 9.12083C29.7023 8.68189 29.1571 8.36531 28.5587 8.20259C26.3402 7.59342 17.4648 7.58351 17.4648 7.58351C17.4648 7.58351 8.59082 7.57359 6.37091 8.15584C5.77297 8.32605 5.22882 8.64711 4.79071 9.0882C4.35259 9.52929 4.03523 10.0756 3.86907 10.6747C3.28399 12.8932 3.27832 17.4945 3.27832 17.4945C3.27832 17.4945 3.27266 22.1185 3.85349 24.3143C4.17932 25.5284 5.13557 26.4875 6.35107 26.8148C8.59224 27.4239 17.4436 27.4338 17.4436 27.4338C17.4436 27.4338 26.319 27.4438 28.5375 26.8629C29.136 26.7005 29.6818 26.3846 30.1208 25.9466C30.5599 25.5086 30.877 24.9635 31.0407 24.3653C31.6272 22.1483 31.6315 17.5483 31.6315 17.5483C31.6315 17.5483 31.6598 12.9229 31.0549 10.7044ZM14.6258 21.7573L14.6329 13.2573L22.0095 17.5143L14.6258 21.7573Z" fill="#001E55"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">&copy; 2025 Emergo. Tous droits réservés.</p>
+        <div class="footer-bottom-links">
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+          <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

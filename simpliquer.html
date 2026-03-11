@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S'impliquer et soutenir Emergo – Événements et reconnaissance</title>
+  <meta name="description" content="Découvrez comment participer à nos événements, devenir commanditaire ou partenaire, et voir comment nous mettons nos grands donateurs à l'honneur.">
+  <link rel="stylesheet" href="https://use.typekit.net/hdz2oxl.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <style>
+    /* ============================================
+       PAGE S'IMPLIQUER – styles spécifiques
+       ============================================ */
+
+    /* ---- Section hero texte + image (bleu foncé) ---- */
+    .block-text-image {
+      background-color: var(--bleu-roi);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .block-text-image .text-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px 80px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .block-text-image .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--beige);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .block-text-image h2 {
+      color: var(--beige);
+      margin-bottom: 32px;
+    }
+
+    .block-text-image p {
+      color: var(--beige);
+      opacity: 0.88;
+      max-width: 100%;
+      font-size: 1.05rem;
+    }
+
+    .block-text-image .image-col {
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Masque bleu vertical concave — le SVG inline s'étire sur 100% de la hauteur */
+    .block-text-image .image-col .curve-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .block-text-image .image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ---- Section événements (beige) ---- */
+    .block-events {
+      background-color: var(--beige);
+      padding: 80px 0 120px;
+      min-height: 100vh;
+    }
+
+    .block-events h2 {
+      margin-bottom: 60px;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 36px;
+    }
+
+    /* Article large (pleine largeur) */
+    .article-wide {
+      grid-column: 1 / -1;
+      background-color: var(--bleu-roi);
+      border-radius: 40px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      align-items: center;
+      min-height: 360px;
+    }
+
+    .article-wide .article-img {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .article-wide .article-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Contenu avec padding généreux des 2 côtés */
+    .article-wide .article-content {
+      padding: 40px 54px 40px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .article-wide .event-name {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--beige);
+      line-height: 1.3;
+    }
+
+    .article-wide .event-date {
+      font-size: 0.95rem;
+      color: var(--beige);
+      opacity: 0.75;
+      margin-top: 6px;
+    }
+
+    .article-wide p {
+      color: var(--beige);
+      opacity: 0.88;
+      max-width: 100%;
+      font-size: 0.95rem;
+    }
+
+    /* Article small */
+    .article-small {
+      grid-column: span 1;
+    }
+
+    .article-small .article-img img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 32px;
+      display: block;
+    }
+
+    .article-small .article-content {
+      padding-top: 28px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .article-small .event-name {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--bleu-roi);
+      line-height: 1.3;
+    }
+
+    .article-small .event-date {
+      font-size: 0.9rem;
+      color: var(--bleu-roi);
+      opacity: 0.7;
+      margin-top: 5px;
+    }
+
+    .article-small p {
+      color: var(--bleu-roi);
+      font-size: 0.95rem;
+      max-width: 100%;
+    }
+
+    /* ---- Bouton flèche (btn-arrow) ----
+       width: max-content = la flèche colle immédiatement après le texte */
+    .btn-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      width: max-content;
+      max-width: 100%;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--bleu-roi);
+      transition: color 0.25s ease;
+    }
+
+    .btn-arrow.variant-beige {
+      color: var(--beige);
+    }
+
+    .btn-arrow .arrow-circle {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 2px solid var(--bleu-roi);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s ease;
+    }
+
+    .btn-arrow.variant-beige .arrow-circle {
+      border-color: var(--beige);
+    }
+
+    .btn-arrow:hover .arrow-circle {
+      background: var(--bleu-roi);
+    }
+
+    .btn-arrow.variant-beige:hover .arrow-circle {
+      background: rgba(240,237,225,0.2);
+    }
+
+    .btn-arrow .arrow-circle svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* ---- Section merci (vert) ---- */
+    .block-merci {
+      background-color: var(--vert);
+      padding: 100px 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-merci .inner {
+      max-width: 90%;
+    }
+
+    .block-merci h2 {
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .block-merci p {
+      font-size: 1rem;
+      max-width: 640px;
+    }
+
+    .block-merci .btn {
+      margin-top: 52px;
+    }
+
+    /* ---- Section logos partenaires (jaune) ---- */
+    .block-logos {
+      background-color: var(--jaune);
+      padding: 160px 0 200px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .block-logos .logos-header {
+      max-width: 85%;
+      margin-bottom: 72px;
+    }
+
+    .block-logos .logos-header h2 {
+      margin-bottom: 16px;
+    }
+
+    .block-logos .logos-header p {
+      max-width: 640px;
+    }
+
+    /* Grille logos : chaque cellule centrée, taille contrainte pour uniformité visuelle */
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px 40px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .logos-grid .logo-cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 160px;
+      overflow: visible;
+    }
+
+    .logos-grid .logo-cell img {
+      display: block;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* Forcer le container à pleine largeur dans la section logos */
+    .block-logos .container {
+      max-width: 100%;
+      padding: 0 60px;
+    }
+
+    /* ---- Section CTA ---- */
+    .block-cta {
+      background-color: var(--beige);
+      padding: 100px 0 120px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-pill {
+      background-color: var(--bleu-roi);
+      border-radius: 50vw;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 130px 80px 100px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-pill-icon {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--jaune);
+      border: 10px solid var(--bleu-roi);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-pill h3 {
+      color: var(--beige);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 20px;
+    }
+
+    .cta-pill .cta-sub {
+      color: var(--beige);
+      opacity: 0.9;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      font-size: 1.1rem;
+    }
+
+    .btn-beige-pill {
+      display: inline-block;
+      padding: 14px 52px;
+      border-radius: 29px;
+      background: var(--beige);
+      color: var(--bleu-roi);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.3s ease;
+      border: 2px solid var(--beige);
+    }
+
+    .btn-beige-pill:hover {
+      background: transparent;
+      color: var(--beige);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 960px) {
+      .block-text-image {
+        grid-template-columns: 1fr;
+      }
+
+      .block-text-image .text-col {
+        padding: 100px 28px 60px;
+      }
+
+      .block-text-image .image-col {
+        height: 360px;
+      }
+
+      /* Sur mobile, la courbe SVG est cachée, remplacée par un masque horizontal */
+      .block-text-image .image-col .curve-mask {
+        display: none;
+      }
+      .block-text-image .image-col::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 80px;
+        background: var(--bleu-roi);
+        clip-path: ellipse(60% 100% at 50% 0%);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-wide {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .article-wide .article-img {
+        height: 320px;
+      }
+
+      .article-wide .article-content {
+        padding: 32px 32px 36px;
+      }
+
+      .logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 48px;
+      }
+
+      .cta-pill {
+        border-radius: 40px;
+        padding: 110px 36px 80px;
+      }
+
+      .block-text-image,
+      .block-events,
+      .block-merci,
+      .block-logos,
+      .block-cta {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .block-text-image .text-col {
+        padding: 90px 20px 50px;
+      }
+
+      .logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+      }
+
+      .logos-grid .logo-cell {
+        height: 56px;
+      }
+
+      .logos-grid .logo-cell img {
+        max-height: 44px;
+        max-width: 140px;
+      }
+
+      .cta-pill {
+        padding: 100px 24px 72px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/emergo-logo.svg" alt="Fondation Emergo" style="width:275px;max-width:100%;">
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-links">
+          <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
+          <li><a href="la-cause.html" data-i18n="nav.cause">La cause</a></li>
+          <li><a href="dons.html" data-i18n="nav.dons">Dons</a></li>
+          <li><a href="simpliquer.html" class="active" data-i18n="nav.simpliquer">S'impliquer</a></li>
+        </ul>
+      </nav>
+        <div class="nav-actions">
+          <a href="https://www.canadahelps.org/fr/dn/6634" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="nav.donate">Faire un don</a>
+          <a href="javascript:void(0)" class="lang-toggle" onclick="toggleLang()" data-i18n="nav.lang">EN</a>
+        </div>
+      <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-top:70px;">
+
+    <!-- ========== SECTION 1 : TEXTE + IMAGE + COURBE ========== -->
+    <section class="block-text-image">
+      <div class="text-col">
+        <div class="eyebrow" data-i18n="simpl.hero.eyebrow">Impliquez-vous à nos côtés</div>
+        <h2 data-i18n="simpl.hero.title">Des événements rassembleurs et porteurs</h2>
+        <p data-i18n="simpl.hero.text">Participer à un événement de la Fondation Emergo, c'est joindre l'utile à l'agréable. Que ce soit en courant, en jouant au golf ou en donnant un coup de main, chaque geste – qu'il soit posé par un·e coureur·euse, golfeur·euse ou bénévole – contribue à offrir du répit aux familles qui en ont besoin.</p>
+      </div>
+      <div class="image-col">
+        <!-- SVG masque concave : le viewBox 180×100 est étiré sur toute la hauteur.
+             La courbe Q crée un demi-cercle concave prononcé sur le bord gauche -->
+        <svg class="curve-mask" viewBox="0 0 180 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 0,0 L 180,0 Q 0,50 180,100 L 0,100 Z" fill="var(--bleu-roi, #001E55)"/>
+        </svg>
+        <img src="img/IMG_6073.jpg" alt="Événement Fondation Emergo">
+      </div>
+    </section>
+
+    <!-- ========== SECTION 2 : ÉVÉNEMENTS ========== -->
+    <section class="block-events">
+      <div class="container">
+        <h2 data-i18n="simpl.events.title">Nos événements</h2>
+
+        <div class="events-grid">
+
+          <!-- Carte large : Marathon Beneva -->
+          <article class="article-wide">
+            <div class="article-img">
+              <img src="img/Emergo_Marathon-Beneva.jpeg" alt="Marathon Beneva de Montréal 2025">
+            </div>
+            <div class="article-content">
+              <div>
+                <div class="event-name" data-i18n="simpl.ev1.name">Marathon Beneva de Montréal 2025</div>
+                <div class="event-date" data-i18n="simpl.ev1.date">20/09/2025</div>
+              </div>
+              <p data-i18n-html="simpl.ev1.text">Inscrivez-vous dès maintenant au Marathon Beneva de Montréal le samedi 20 septembre 2025 et courez ou marchez pour amasser des fonds pour notre cause !<br><br>
+              Lors de votre inscription :<br>
+              · Rejoignez <strong style="color:var(--beige);">l'équipe Fondation Emergo</strong><br>
+              · Choisissez <strong style="color:var(--beige);">Fondation Emergo</strong> comme organisme de bienfaisance</p>
+              <a href="https://raceroster.com/events/2025/94484/marathon-beneva-de-montreal-edition-2025"
+                 class="btn-arrow variant-beige" target="_blank" rel="noopener">
+                <span data-i18n="simpl.ev1.btn">Joindre l'équipe</span>
+                <span class="arrow-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none">
+                    <path d="M16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289L10.3431 0.928933C9.95262 0.538409 9.31946 0.538409 8.92893 0.928933C8.53841 1.31946 8.53841 1.95262 8.92893 2.34315L14.5858 8L8.92893 13.6569C8.53841 14.0474 8.53841 14.6805 8.92893 15.0711C9.31946 15.4616 9.95262 15.4616 10.3431 15.0711L16.7071 8.70711ZM0 9L16 9L16 7L0 7L0 9Z" fill="#F0EDE1"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Carte petite : Choisissez votre impact -->
+          <article class="article-small">
+            <div class="article-img">
+              <img src="img/Emergo_Impact.jpeg" alt="Choisissez votre impact">
+            </div>
+            <div class="article-content">
+              <div>
+                <div class="event-name" data-i18n="simpl.ev2.name">Choisissez votre impact</div>
+                <div class="event-date" data-i18n="simpl.ev2.date">31/12/2025</div>
+              </div>
+              <p data-i18n="simpl.ev2.text">Soutenez un projet concret parmi ceux qui vous tiennent à cœur. Chaque contribution est dirigée vers une initiative bien précise.</p>
+              <a href="dons.html" class="btn-arrow">
+                <span data-i18n="simpl.ev2.btn">Découvrir les projets</span>
+                <span class="arrow-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none">
+                    <path d="M16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289L10.3431 0.928933C9.95262 0.538409 9.31946 0.538409 8.92893 0.928933C8.53841 1.31946 8.53841 1.95262 8.92893 2.34315L14.5858 8L8.92893 13.6569C8.53841 14.0474 8.53841 14.6805 8.92893 15.0711C9.31946 15.4616 9.95262 15.4616 10.3431 15.0711L16.7071 8.70711ZM0 9L16 9L16 7L0 7L0 9Z" fill="#001E55"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Carte petite : Tournoi de golf -->
+          <article class="article-small">
+            <div class="article-img">
+              <img src="img/Emergo_Tournoi-golf.jpeg" alt="Tournoi de golf-bénéfice 2025">
+            </div>
+            <div class="article-content">
+              <div>
+                <div class="event-name" data-i18n="simpl.ev3.name">Tournoi de golf-bénéfice 2025</div>
+                <div class="event-date" data-i18n="simpl.ev3.date">19/06/2025</div>
+              </div>
+              <p data-i18n="simpl.ev3.text">Joignez-vous à nous pour une journée conviviale au profit des services de répit. Une occasion unique de jouer, réseauter et soutenir une cause essentielle.</p>
+              <a href="https://www.canadahelps.org/fr/dn/6634" class="btn-arrow" target="_blank" rel="noopener">
+                <span data-i18n="simpl.ev3.btn">Je souhaite m'inscrire</span>
+                <span class="arrow-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none">
+                    <path d="M16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289L10.3431 0.928933C9.95262 0.538409 9.31946 0.538409 8.92893 0.928933C8.53841 1.31946 8.53841 1.95262 8.92893 2.34315L14.5858 8L8.92893 13.6569C8.53841 14.0474 8.53841 14.6805 8.92893 15.0711C9.31946 15.4616 9.95262 15.4616 10.3431 15.0711L16.7071 8.70711ZM0 9L16 9L16 7L0 7L0 9Z" fill="#001E55"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3 : MERCI DONATEURS ========== -->
+    <section class="block-merci">
+      <div class="container">
+        <div class="inner">
+          <h2 data-i18n="simpl.merci.title">Merci à celles et ceux qui rendent tout cela possible</h2>
+          <p data-i18n="simpl.merci.text">Grâce à votre générosité, des familles reçoivent le répit dont elles ont tant besoin. Vous êtes au cœur de notre mission. Retrouvez nos grand·es donateurs et donatrices dans les rapports annuels.</p>
+          <a href="FondationEmergo_RapportAnnuel_2024-2025.pdf" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="simpl.merci.btn">
+            Découvrez les actions réalisées
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4 : LOGOS PARTENAIRES ========== -->
+    <section class="block-logos">
+      <div class="container">
+        <div class="logos-header">
+          <h2 data-i18n="simpl.logos.title">Merci à nos partenaires engagés</h2>
+          <p data-i18n="simpl.logos.text">Leur soutien fidèle nous permet d'aller plus loin. Ensemble, nous bâtissons un réseau de répit solide, humain et accessible pour les familles.</p>
+        </div>
+        <!-- Chaque logo dans une cellule de hauteur fixe pour uniformité -->
+        <div class="logos-grid">
+          <div class="logo-cell"><img src="img/logo-GroupeRobert.svg" alt="Groupe Robert" style="height:135px;width:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_Metro.svg" alt="Métro" style="width:412px;height:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_AirCanada.svg" alt="Air Canada" style="width:506px;height:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_Claret.png" alt="Claret" style="height:120px;width:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_Galerie-Simon-Blais.svg" alt="Galerie Simon Blais" style="height:150px;width:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_GlobalAlpha.svg" alt="Global Alpha" style="height:248px;width:auto;"></div>
+          <div class="logo-cell"><img src="img/Logo_Groupe-Schulman.svg" alt="Groupe Schulman" style="width:450px;height:auto;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 5 : CTA ========== -->
+    <section class="block-cta">
+      <div class="container">
+        <div class="cta-pill">
+          <!-- Icône animée : étoile/forme Emergo -->
+          <div class="cta-pill-icon">
+            <svg viewBox="0 0 75 75" width="70" height="70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="37.5" cy="37.5" r="24" stroke="#001E55" stroke-width="3" fill="none"/>
+              <circle cx="37.5" cy="29" r="7" fill="#001E55"/>
+              <path d="M22 52c0-8.56 6.94-15.5 15.5-15.5S53 43.44 53 52" fill="#001E55"/>
+            </svg>
+          </div>
+          <h3 data-i18n="simpl.cta.title">Votre impact compte</h3>
+          <p class="cta-sub" data-i18n="simpl.cta.text">Chaque don, petit ou grand, contribue à offrir du répit et du soutien à des familles.</p>
+          <a href="https://www.canadahelps.org/fr/dn/6634" class="btn-beige-pill" target="_blank" rel="noopener" data-i18n="simpl.cta.btn">
+            Faire un don maintenant
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-logo">
+          <a href="index.html" class="logo">
+            <img src="img/emergo-logo.svg" alt="Fondation Emergo" style="width:275px;max-width:100%;">
+          </a>
+        </div>
+        <div class="footer-info">
+          <h4 data-i18n="footer.address.label">Adresse :</h4>
+          <p><a href="https://maps.app.goo.gl/T6Fyi6uvD1BULQPL6" target="_blank" rel="noopener">1862, rue Jolicoeur, Montréal (Québec) H4E 1X2</a></p>
+          <h4 data-i18n="footer.association.label">Numéro d'association :</h4>
+          <p>817384712RR0001</p>
+          <h4 data-i18n="footer.contact.label">Contact</h4>
+          <p><a href="tel:5146582882">514 658-2882</a><br><a href="mailto:info@fondationemergo.com">info@fondationemergo.com</a></p>
+        </div>
+        <nav class="footer-nav">
+          <a href="a-propos.html" data-i18n="nav.about">À propos</a>
+          <a href="la-cause.html" data-i18n="nav.cause">La cause</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+        </nav>
+        <div class="footer-actions">
+          <a href="https://www.canadahelps.org/fr/dn/6634" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.donate">Faire un don</a>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/repitemergo" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M31.6317 17.9305C31.6317 10.0586 25.2891 3.67725 17.465 3.67725C9.64097 3.67725 3.29834 10.0586 3.29834 17.9305C3.29834 25.0445 8.47886 30.9413 15.2515 32.0106V22.0506H11.6545V17.9305H15.2515V14.7903C15.2515 11.2181 17.3665 9.24492 20.6024 9.24492C22.1525 9.24492 23.7736 9.52331 23.7736 9.52331V13.0309H21.9873C20.2275 13.0309 19.6785 14.1297 19.6785 15.2569V17.9305H23.6075L22.9795 22.0506H19.6785V32.0106C26.4512 30.9413 31.6317 25.0448 31.6317 17.9305Z" fill="#001E55"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/repitemergo/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M23.1315 5.09375H11.7982C7.88617 5.09375 4.71484 8.26507 4.71484 12.1771V23.5104C4.71484 27.4224 7.88617 30.5938 11.7982 30.5938H23.1315C27.0435 30.5938 30.2148 27.4224 30.2148 23.5104V12.1771C30.2148 8.26507 27.0435 5.09375 23.1315 5.09375ZM27.7357 23.5104C27.7279 26.0499 25.671 28.1068 23.1315 28.1146H11.7982C9.25859 28.1068 7.20179 26.0499 7.19401 23.5104V12.1771C7.20179 9.6375 9.25859 7.58069 11.7982 7.57292H23.1315C25.671 7.58069 27.7279 9.6375 27.7357 12.1771V23.5104ZM24.194 12.5312C24.9764 12.5312 25.6107 11.897 25.6107 11.1146C25.6107 10.3322 24.9764 9.69792 24.194 9.69792C23.4116 9.69792 22.7773 10.3322 22.7773 11.1146C22.7773 11.897 23.4116 12.5312 24.194 12.5312ZM17.4648 11.4688C13.944 11.4688 11.0898 14.3229 11.0898 17.8438C11.0898 21.3646 13.944 24.2188 17.4648 24.2188C20.9857 24.2188 23.8398 21.3646 23.8398 17.8438C23.8437 16.1518 23.1732 14.5281 21.9768 13.3318C20.7804 12.1354 19.1568 11.465 17.4648 11.4688ZM13.569 17.8438C13.569 19.9954 15.3132 21.7396 17.4648 21.7396C19.6165 21.7396 21.3607 19.9954 21.3607 17.8438C21.3607 15.6921 19.6165 13.9479 17.4648 13.9479C15.3132 13.9479 13.569 15.6921 13.569 17.8438Z" fill="#001E55"/>
+              </svg>
+            </a>
+            <a href="https://ca.linkedin.com/company/repitemergo" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.83984 5.09375C5.66623 5.09375 4.71484 6.04514 4.71484 7.21875V28.4688C4.71484 29.6423 5.66623 30.5938 6.83984 30.5938H28.0898C29.2634 30.5938 30.2148 29.6423 30.2148 28.4688V7.21875C30.2148 6.04514 29.2634 5.09375 28.0898 5.09375H6.83984ZM12.5359 10.7643C12.5439 12.119 11.5299 12.9537 10.3266 12.9477C9.19303 12.9417 8.2049 12.0393 8.21088 10.7663C8.21686 9.56896 9.16315 8.60673 10.3923 8.63462C11.6394 8.66252 12.5439 9.57693 12.5359 10.7643ZM17.8611 14.6729H14.2891V26.7993H18.0623V20.5917C18.0683 20.243 18.0842 19.8805 18.1739 19.5477C18.5105 18.3046 19.6282 17.5018 20.8753 17.6991C21.6762 17.8245 22.206 18.2887 22.4291 19.0438C22.5667 19.5158 22.6285 20.0239 22.6344 20.516C22.6506 22.0001 22.6483 23.4842 22.646 24.9684V26.7974H26.4295V19.7849C26.4335 19.0617 26.3558 18.3485 26.1785 17.6492C25.9136 16.6093 25.3657 15.7486 24.4752 15.1272C23.8437 14.6849 23.1504 14.4 22.3754 14.3681C21.7126 14.3334 21.3098 14.3116 20.931 14.388C19.8473 14.6052 18.8951 15.1012 18.1759 15.9757L17.8611 16.3643V14.6729ZM8.51383 26.8033H12.2691V14.6808H8.51383V26.8033Z" fill="#001E55"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@RepitEmergo" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <path d="M31.0549 10.7044C30.8935 10.1057 30.5782 9.55976 30.1403 9.12083C29.7023 8.68189 29.1571 8.36531 28.5587 8.20259C26.3402 7.59342 17.4648 7.58351 17.4648 7.58351C17.4648 7.58351 8.59082 7.57359 6.37091 8.15584C5.77297 8.32605 5.22882 8.64711 4.79071 9.0882C4.35259 9.52929 4.03523 10.0756 3.86907 10.6747C3.28399 12.8932 3.27832 17.4945 3.27832 17.4945C3.27832 17.4945 3.27266 22.1185 3.85349 24.3143C4.17932 25.5284 5.13557 26.4875 6.35107 26.8148C8.59224 27.4239 17.4436 27.4338 17.4436 27.4338C17.4436 27.4338 26.319 27.4438 28.5375 26.8629C29.136 26.7005 29.6818 26.3846 30.1208 25.9466C30.5599 25.5086 30.877 24.9635 31.0407 24.3653C31.6272 22.1483 31.6315 17.5483 31.6315 17.5483C31.6315 17.5483 31.6598 12.9229 31.0549 10.7044ZM14.6258 21.7573L14.6329 13.2573L22.0095 17.5143L14.6258 21.7573Z" fill="#001E55"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">&copy; 2025 Emergo. Tous droits réservés.</p>
+        <div class="footer-bottom-links">
+          <a href="simpliquer.html" data-i18n="nav.simpliquer">S'impliquer</a>
+          <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+          <a href="dons.html" data-i18n="nav.dons">Dons</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
