@@ -46,6 +46,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const mainNav = document.querySelector('.main-nav');
 
   if (hamburger && mainNav) {
+    // Move nav-actions into mobile menu so lang toggle + donate button are visible
+    var navActions = document.querySelector('.header-inner > .nav-actions');
+    if (navActions && window.innerWidth <= 768) {
+      mainNav.appendChild(navActions.cloneNode(true));
+      mainNav.querySelector('.nav-actions').classList.add('nav-actions-mobile');
+    }
+    window.addEventListener('resize', function() {
+      var mobileActions = mainNav.querySelector('.nav-actions-mobile');
+      if (window.innerWidth <= 768 && !mobileActions) {
+        var na = document.querySelector('.header-inner > .nav-actions');
+        if (na) {
+          mainNav.appendChild(na.cloneNode(true));
+          mainNav.querySelector('.nav-actions:last-child').classList.add('nav-actions-mobile');
+        }
+      }
+    });
+
     hamburger.addEventListener('click', function() {
       mainNav.classList.toggle('open');
       // Animate hamburger

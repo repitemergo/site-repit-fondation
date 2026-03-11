@@ -1215,9 +1215,22 @@ p {
     gap: 20px;
   }
 
-  /* Hide nav-actions on mobile — show via JS in hamburger menu */
+  /* Hide header nav-actions on mobile — cloned into hamburger menu */
   .header-inner > .nav-actions {
     display: none;
+  }
+
+  /* Show cloned nav-actions inside mobile menu */
+  .nav-actions-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .nav-actions-mobile .lang-toggle {
+    font-size: 1.1rem;
   }
 
   .nav-links a {
