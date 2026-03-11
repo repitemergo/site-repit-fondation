@@ -311,6 +311,98 @@ const translations = {
     'simpl.cta.text': 'Chaque don, petit ou grand, contribue à offrir du répit et du soutien à des familles.',
     'simpl.cta.btn': 'Faire un don maintenant',
 
+    // ===== POLITIQUE DE CONFIDENTIALITÉ =====
+    'privacy.hero.title': 'Politique de confidentialité des données',
+    'privacy.hero.subtitle': 'La protection de votre vie privée est une priorité pour nous',
+
+    'privacy.section1.title': 'Engagement',
+    'privacy.section1.text1': 'La protection de votre vie privée est une priorité pour Répit Emergo. La présente politique vise à vous informer des balises établies pour protéger les renseignements personnels que vous confiez à l\'une ou l\'autre de ces organisations ou aux deux organisations, par le biais du Web ou de tout autre moyen, le tout en conformité avec les règles et lois sur la protection de la vie privée qui s\'appliquent à Répit Emergo.',
+    'privacy.section1.text2': 'Répit Emergo est assujetti à la Loi sur la protection des renseignements personnels dans le secteur privé, L.Q., 1993, c. P-39.1.',
+
+    'privacy.section2.title': 'Principes généraux',
+    'privacy.section2.text1': 'Dans le cadre de ses activités, et suivant votre accord, Répit Emergo peut recueillir des renseignements personnels que vous nous fournissez afin de les utiliser pour les finalités décrites ci-dessous. La présente politique détaillée de quelles manières Répit Emergo : recueille les renseignements personnels; utilise ces mêmes renseignements et; communique ces renseignements à des tiers, suivant votre consentement à cet effet lorsque nécessaire.',
+    'privacy.section2.text2': 'Tous les employés de Répit Emergo sont responsables de l\'application de la politique de confidentialité des données et des pratiques en matière de gestion des renseignements personnels.',
+    'privacy.section2.text3': 'Répit Emergo et La Fondation Emergo sont deux personnes morales distinctes. Elles sont toutefois liées par des ressources communes et des objectifs communs. Ainsi, les renseignements personnels confiés à la Fondation Emergo ou à Répit Emergo seront partagés entre ces deux organisations, lorsque nécessaire pour les fins prévues à la présente politique, sauf en cas de refus explicite de votre part.',
+
+    'privacy.section3.title': 'Définition de la notion de renseignements personnels',
+    'privacy.section3.text': 'Les renseignements personnels sont définis comme « tout renseignement qui concerne une personne physique et permet de l\'identifier ».',
+
+    'privacy.section4.title': 'Consentement',
+    'privacy.section4.text1': 'Votre consentement à la communication ou à l\'utilisation de vos renseignements personnels doit être donné de manière explicite. Il sera valide pour les fins mentionnées à la présente politique ainsi que pour les fins spécifiques mentionnées lors du consentement, le cas échéant.',
+    'privacy.section4.text2': 'Le consentement sera valide pour la durée nécessaire à la réalisation des objectifs précisés au consentement ou pour les objectifs précisés à la section 7 de la présente politique.',
+    'privacy.section4.text3': 'Votre consentement pourra être retiré en tout temps comme indiqué à la section 12 de la présente politique.',
+
+    'privacy.section5.title': 'Renseignements personnels recueillis',
+    'privacy.section5.intro': 'Les renseignements personnels que Répit Emergo pourra recueillir, à la suite de votre consentement et selon les circonstances, sont les suivants :',
+    'privacy.section5.item1': 'Renseignements nominatifs (nom, prénom, numéros de téléphone, adresses postales et courriel)',
+    'privacy.section5.item2': 'Date de naissance et sexe',
+    'privacy.section5.item3': 'Information sur une carte de crédit, mandat ou un chèque',
+    'privacy.section5.item4': 'Date d\'inscription à titre de membre de Répit Emergo et date de renouvellement',
+
+    'privacy.section6.title': 'Collecte des renseignements personnels',
+    'privacy.section6.text1': 'La collecte de renseignements personnels par Répit Emergo s\'effectue lorsque vous utilisez nos services et que vous communiquez volontairement vos renseignements personnels. Par exemple en :',
+    'privacy.section6.item1': 'Participant à un événement ou à une activité',
+    'privacy.section6.item2': 'Utilisant les services in situ ou en ligne',
+    'privacy.section6.item3': 'Envoyant une question ou un commentaire par tous moyens de communication',
+    'privacy.section6.item4': 'Vous abonnant aux communications électroniques, telle l\'Infolettre',
+    'privacy.section6.item5': 'Participant à un encan',
+    'privacy.section6.item6': 'Devenant membre',
+    'privacy.section6.item7': 'Effectuant un don',
+    'privacy.section6.text2': 'La collecte de renseignements personnels est limitée aux renseignements nécessaires aux fins précisées dans la présente politique. Lorsque nous recueillerons vos renseignements, vous aurez l\'occasion de refuser qu\'ils soient conservés pour une utilisation ultérieure par Répit Emergo.',
+
+    'privacy.section7.title': 'Finalités de la collecte',
+    'privacy.section7.intro': 'Les renseignements personnels que vous communiquerez serviront exclusivement aux fins suivantes :',
+    'privacy.section7.item1': 'Permettre de vous identifier et vous authentifier dans le système informatique de Répit Emergo afin de faciliter les transactions',
+    'privacy.section7.item2': 'Permettre à Répit Emergo de vous fournir un service adapté à vos besoins',
+    'privacy.section7.item3': 'Communiquer avec vous périodiquement par écrit, de vive voix ou par voie électronique afin de vous tenir informé des activités, programmes ou initiatives de Répit Emergo',
+    'privacy.section7.item4': 'Permettre à Répit Emergo de tenir des statistiques sur la clientèle',
+    'privacy.section7.item5': 'Permettre à Répit Emergo de traiter vos dons et de préparer les reçus pour déclaration fiscale en conformité avec les lois',
+    'privacy.section7.item6': 'Permettre à Répit Emergo d\'effectuer le suivi nécessaire en regard des donations ponctuelles',
+    'privacy.section7.item7': 'Permettre à Répit Emergo d\'informer les donateurs quant à l\'utilisation des dons',
+    'privacy.section7.item8': 'Permettre à Répit Emergo de reconnaître la contribution des donateurs dans différents véhicules de communication, notamment les rapports annuels, sur les tableaux de donateurs, etc.',
+
+    'privacy.section8.title': 'Utilisation, conservation et divulgation',
+    'privacy.section8.a.title': 'a. Utilisation',
+    'privacy.section8.a.text1': 'Vos renseignements personnels ne seront utilisés que pour les fins pour lesquelles ils ont été recueillis comme cela est précisé à la section 7 de la présente politique. À cet effet, nous les conservons de manière confidentielle aussi longtemps que nécessaire.',
+    'privacy.section8.a.text2': 'Répit Emergo assure la protection de vos renseignements personnels en tout temps, par des mesures de sécurité appropriées, qu\'elles soient matérielles, organisationnelles ou technologiques. Aussi, Répit Emergo s\'assure de limiter l\'accès aux renseignements personnels au personnel, selon les niveaux précisés à la section 9.',
+    'privacy.section8.b.title': 'b. Conservation',
+    'privacy.section8.b.text': 'Votre dossier sera conservé de manière numérique sur le serveur informatique de Répit Emergo et de manière physique dans nos bureaux.',
+    'privacy.section8.c.title': 'c. Divulgation',
+    'privacy.section8.c.intro': 'Répit Emergo pourra divulguer vos renseignements personnels à des tiers dans les cas suivants :',
+    'privacy.section8.c.item1': 'Auprès des préposés, mandataires ou agents de Répit Emergo, des prestataires de services qui, en vertu d\'un contrat de services ou d\'entreprise, assistent Répit Emergo dans leurs activités dans les seules fins prévues par la loi',
+    'privacy.section8.c.item2': 'Sauf si vous refusez que ces informations soient communiquées, Répit Emergo pourra transmettre vos informations nominatives pour des fins d\'octroi de services ou de prospection philanthropique',
+    'privacy.section8.c.item3': 'Dans tous les cas où, en vertu de la Loi sur la protection des renseignements personnels dans le secteur privé, la communication d\'un renseignement personnel est possible sans autorisation',
+    'privacy.section8.c.text': 'Répit Emergo s\'assure, dans les limites du raisonnable, que ces tierces parties respectent les règles et engagements de la présente politique en prenant les mesures nécessaires.',
+
+    'privacy.section9.title': 'Accessibilité par le personnel',
+    'privacy.section9.text': 'Répit Emergo a pris des mesures afin de garantir la plus grande protection de vos renseignements personnels et les employés y ayant accès pourront seulement accéder aux informations nécessaires à l\'exercice de leurs fonctions.',
+
+    'privacy.section10.title': 'Témoins web et analyse d\'audience',
+    'privacy.section10.text1': 'Certaines pages du site web de Répit Emergo requièrent l\'envoi de témoins de connexion (témoins) afin d\'aider les utilisateurs du site à naviguer plus rapidement et leur proposer le contenu qui les intéresse le plus. Aucun renseignement personnel n\'est conservé dans les témoins.',
+    'privacy.section10.text2': 'Les informations de navigation peuvent être partagées avec des tiers autorisés avec lesquels Répit Emergo collabore, tels que des partenaires. Les informations de navigation ne contiennent aucune donnée personnelle. Répit Emergo s\'assure, dans les limites du raisonnable, que les tiers autorisés prennent les mesures nécessaires afin de respecter la confidentialité de vos données.',
+    'privacy.section10.text3': 'Le site web de Répit Emergo peut proposer des hyperliens vers d\'autres sites web. Les renseignements échangés sur ces sites ne sont pas assujettis à la présente politique de confidentialité.',
+
+    'privacy.section11.title': 'Exactitude',
+    'privacy.section11.text1': 'Répit Emergo prend des mesures raisonnables pour s\'assurer de l\'exactitude des renseignements personnels au moment de les utiliser ou de les communiquer. Nous vous remercions de contribuer à cette exactitude en communiquant avec nous tout changement devant être apporté à vos renseignements personnels ou toute erreur pouvant s\'y trouver.',
+    'privacy.section11.text2': 'Veuillez consulter la section 14 afin d\'obtenir les coordonnées du responsable de la protection des renseignements personnels.',
+
+    'privacy.section12.title': 'Droit d\'accès, de rectification et de retrait du consentement',
+    'privacy.section12.a.title': 'a. Droit d\'accès',
+    'privacy.section12.a.text': 'Répit Emergo vous permet, sous réserve des conditions et exemptions prévues à la loi, d\'avoir accès aux renseignements personnels que Répit Emergo détient à votre sujet.',
+    'privacy.section12.b.title': 'b. Droit de rectification ou de suppression',
+    'privacy.section12.b.text': 'Il vous sera possible de rectifier les renseignements personnels lorsque ces renseignements sont inexacts, incomplets, équivoques, périmés ou non justifiés.',
+    'privacy.section12.c.title': 'c. Droit de retrait',
+    'privacy.section12.c.text': 'Toute demande d\'accès, de rectification ou de suppression devra être réalisée par écrit et accompagnée d\'une preuve d\'identité. À la réception de la demande, Répit Emergo y donnera suite, au plus tard dans les trente (30) jours.',
+
+    'privacy.section13.title': 'Plainte',
+    'privacy.section13.text': 'Pour toute demande ou plainte relative à la mise en œuvre de la présente politique, veuillez consulter la section 14 afin d\'obtenir les coordonnées du responsable de la protection des renseignements personnels.',
+
+    'privacy.section14.title': 'Coordonnées',
+    'privacy.section14.intro': 'Pour toute question ou tout commentaire concernant la manière dont nous traitons vos renseignements personnels, notre politique de confidentialité des données, ou pour exercer l\'un ou l\'autre de vos droits, n\'hésitez pas à communiquer avec notre responsable de la protection des renseignements personnels :',
+    'privacy.section14.contact.title': 'Responsable de la protection des renseignements personnels',
+    'privacy.section14.contact.mail': 'Par courrier :',
+    'privacy.section14.contact.phone': 'Par téléphone :',
+
     // Footer
     'footer.address.label': 'Adresse:',
     'footer.association.label': 'Numéro d\'association:',
