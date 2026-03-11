@@ -317,6 +317,11 @@ p {
   color: var(--blanc);
 }
 
+/* Hide mobile nav-actions clone on desktop */
+.nav-actions-mobile {
+  display: none;
+}
+
 /* Hamburger */
 .hamburger {
   display: none;
