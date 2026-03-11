@@ -1175,9 +1175,7 @@ p {
   .social-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 768px) {
   /* Désactiver le min-height: 100vh sur mobile */
   .hero,
   .section-fondation,
